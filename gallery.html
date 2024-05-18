@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Галерея изображений</title>
+</head>
+<body>
+    <div id="gallery">
+        <img 
+        src="./images/цветочек1.jpg" 
+        alt="Изображение 1"
+        id="galleryImage"
+        width="400"
+        />
+        <button id="prevButton">Назад</button>
+        <button id="nextButton">Вперёд</button>
+    </div>
+    <button id="getPrice">Узнать стоимость</button>
+    <div id="write"></div>
+    <script>
+        console.log('Я учу JavaScript!')
+        const image1 = "./images/цветочек2.jpg";
+        const image2 = "./images/цветочек1.jpg";
+        const galleryImage = document.getElementById('galleryImage');
+        const prevButton = document.getElementById('prevButton');
+        const nextButton = document.getElementById('nextButton');
+        let currentImage = image2;
+
+        function changeImage(image){
+            galleryImage.src = image;
+        }
+
+        nextButton.addEventListener('click',() => {
+            currentImage = image1;
+            changeImage(currentImage);
+        });
+
+        prevButton.addEventListener('click',() => {
+            currentImage = image2;
+            changeImage(currentImage);
+        });
+
+        const getPrice = document.getElementById('getPrice');
+        let result = 0;
+
+        function calculateTotalPrice(quantity = 2, price = 15000000){
+            result = quantity*price;
+            write.innerHTML = `Стоимость покупки: ${result.toLocaleString('ru-RU')} рублей`;
+        }
+
+        getPrice.addEventListener('click', () => {
+            calculateTotalPrice();
+        })
+
+    </script>
+</body>
+</html>
